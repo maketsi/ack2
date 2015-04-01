@@ -48,6 +48,7 @@ my %defaults = (
     sort_files                => undef,
     v                         => undef,
     w                         => undef,
+    'ignore-comments'         => undef
 );
 
 test_loader(

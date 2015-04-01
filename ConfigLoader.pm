@@ -312,6 +312,7 @@ EOT
         'h|no-filename'     => \$opt->{h},
         'H|with-filename'   => \$opt->{H},
         'i|ignore-case'     => \$opt->{i},
+        'ignore-comments'   => \$opt->{'ignore-comments'},
         'ignore-directory|ignore-dir=s' => _generate_ignore_dir('--ignore-dir', $opt),
         'ignore-file=s'     => sub {
                                     my ( undef, $file ) = @_;

@@ -323,6 +323,13 @@ sub build_regex {
         $str = "$str\\b" if $pristine_str =~ /\w$/;
     }
 
+    # ignore common single-line comments on request
+    if ($opt->{'ignore-comments'}) {
+        $str = '^(?!\s*(?:\#|//)).*' .
+	    ($] < 5.010 ? '' : '\K') .  # \K is supported from 5.10.0
+	    $str;
+    }
+
     my $regex_is_lc = $str eq lc $str;
     if ( $opt->{i} || ($opt->{smart_case} && $regex_is_lc) ) {
         $str = "(?i)$str";
